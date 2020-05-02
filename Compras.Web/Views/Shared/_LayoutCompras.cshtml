@@ -17,9 +17,9 @@
 </head>
 <body>
     <nav class="navbar fixed-top navbar-light bg-primary">
-        <a class="navbar-brand" href="#">
-            <img src="~/images/casa-do-codigo_2x.png" width="30" height="30" alt="">
-            ASP.NET Core MVC
+        <a class="navbar-brand" href="/">
+            <img src="~/images/aspnetcore.png" width="30" height="30" alt="">
+            <span style="color: white">ASP.NET Core MVC - Compras</span>
         </a>
     </nav>
 
@@ -34,13 +34,17 @@
         <div class="row">
             <div class="col-2">
                 <nav class="nav flex-column">
-                    <a class="nav-item nav-link" asp-controller="Instituicao" asp-action="Index">
-                        <img src="~/images/university.png" width="30" height="30" alt="">
-                        Instituições
+                    <a class="nav-item nav-link" asp-controller="Fornecedor" asp-action="Index">
+                        <img src="~/images/fornecedor.jpg" width="30" height="30" alt="">
+                        Fornecedores
+                    </a>
+                    <a class="nav-item nav-link" asp-controller="Produto" asp-action="Index">
+                        <img src="~/images/produto.jpg" width="30" height="30" alt="">
+                        Produtos
                     </a>
                     <a class="nav-item nav-link" href="#">
-                        <img src="~/images/department.png" width="30" height="30" alt="">
-                        Departamentos
+                        <img src="~/images/compra.jpg" width="30" height="30" alt="">
+                        Compra
                     </a>
                 </nav>
             </div>
@@ -55,7 +59,7 @@
     </div>
 
     <nav class="navbar fixed-bottom" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#">Everton Coimbra de Araújo</a>
+        <a class="navbar-brand" href="https://github.com/osmarmartins" target="_blank">Osmar Martins Filho</a>
     </nav>
 
     <environment include="Development">

@@ -2,7 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Sistema de Compras</h1>
+        <img src="~/images/banner_compras.jpg" alt="">
+        <p>Desenvolvido em Asp.NET Core MVC. <a href="https://docs.microsoft.com/aspnet/core" target="_blank">Consulte o site oficial do ASP.NET Core</a>.</p>
+    </div>

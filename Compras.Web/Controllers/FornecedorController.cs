@@ -32,8 +32,6 @@ namespace Compras.Web.Controllers
             return View();
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Nome", "RazaoSocial", "CpfCnpj")] Fornecedor fornecedor)
