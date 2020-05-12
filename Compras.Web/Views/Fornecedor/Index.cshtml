@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.FornecedorID)
+                    @Html.DisplayNameFor(model => model.FornecedorId)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nome)
@@ -38,7 +38,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FornecedorID)
+                        @Html.DisplayFor(modelItem => item.FornecedorId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Nome)
@@ -50,9 +50,9 @@
                         @Html.DisplayFor(modelItem => item.CpfCnpj)
                     </td>
                     <td>
-                        @Html.ActionLink("Alterar", "Edit", new { id = item.FornecedorID }) |
-                        @Html.ActionLink("Detalhes", "Details", new { id = item.FornecedorID }) |
-                        @Html.ActionLink("Excluir", "Delete", new { id = item.FornecedorID })
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.FornecedorId }) |
+                        @Html.ActionLink("Detalhar", "Details", new { id = item.FornecedorId }) |
+                        @Html.ActionLink("Excluir", "Delete", new { id = item.FornecedorId })
                     </td>
                 </tr>
             }

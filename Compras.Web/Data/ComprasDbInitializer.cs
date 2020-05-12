@@ -33,35 +33,35 @@ namespace Compras.Web.Data
             {
             new Fornecedor()
             {
-                FornecedorID = 1,
+                FornecedorId = 1,
                 Nome = "Confecção ABC",
                 RazaoSocial = "Confecção ABC ME",
                 CpfCnpj = "11.111.111/0001-11"
             },
             new Fornecedor()
             {
-                FornecedorID = 2,
+                FornecedorId = 2,
                 Nome = "Metalúrgica XYZ",
                 RazaoSocial = "Metalúrgica XYZ Ltda",
                 CpfCnpj = "22.222.222/0001-22"
             },
             new Fornecedor()
             {
-                FornecedorID = 3,
+                FornecedorId = 3,
                 Nome = "Seu Zé da Bodega",
                 RazaoSocial = "Zé Maria ME",
                 CpfCnpj = "111.111.111-11"
             },
             new Fornecedor()
             {
-                FornecedorID = 4,
+                FornecedorId = 4,
                 Nome = "Locadora VHS",
                 RazaoSocial = "Locação & Edição de vídeos Ltda",
                 CpfCnpj = "44.444.444/0001-44"
             },
             new Fornecedor()
             {
-                FornecedorID = 5,
+                FornecedorId = 5,
                 Nome = "Padaria Pão de Mel",
                 RazaoSocial = "Cooperativa Padarias da Capital",
                 CpfCnpj = "55.555.555/0001-55"

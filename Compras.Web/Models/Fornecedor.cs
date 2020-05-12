@@ -7,7 +7,7 @@ namespace Compras.Web.Models
 {
     public class Fornecedor
     {
-        public long? FornecedorID { get; set; }
+        public long? FornecedorId { get; set; }
         public string Nome { get; set; }
         public string RazaoSocial { get; set; }
         public string CpfCnpj { get; set; }

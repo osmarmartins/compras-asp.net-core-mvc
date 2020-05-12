@@ -59,7 +59,7 @@ namespace Compras.Web.Controllers
                 return NotFound();
             }
 
-            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorID == id);
+            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorId == id);
             if (fornecedor == null)
             {
                 return NotFound();
@@ -69,8 +69,13 @@ namespace Compras.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("Nome", "RazaoSocial", "CpfCnpj")] Fornecedor fornecedor)
+        public async Task<IActionResult> Edit(long? id, [Bind("FornecedorId", "Nome", "RazaoSocial", "CpfCnpj")] Fornecedor fornecedor)
         {
+            if (id != fornecedor.FornecedorId)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
                 try
@@ -80,7 +85,7 @@ namespace Compras.Web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FornecedorExists(fornecedor.FornecedorID))
+                    if (!FornecedorExists(fornecedor.FornecedorId))
                     {
                         return NotFound();
                     }
@@ -98,7 +103,7 @@ namespace Compras.Web.Controllers
 
         private bool FornecedorExists(long? id)
         {
-            return _context.Fornecedores.Any(f => f.FornecedorID == id);
+            return _context.Fornecedores.Any(f => f.FornecedorId == id);
         }
 
         public async Task<IActionResult> Details(long? id)
@@ -108,7 +113,7 @@ namespace Compras.Web.Controllers
                 return NotFound();
             }
 
-            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorID == id);
+            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorId == id);
             if (fornecedor == null)
             {
                 return NotFound();
@@ -123,7 +128,7 @@ namespace Compras.Web.Controllers
                 return NotFound();
             }
 
-            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorID == id);
+            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorId == id);
             if (fornecedor == null)
             {
                 return NotFound();
@@ -135,7 +140,7 @@ namespace Compras.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long? id)
         {
-            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorID == id);
+            var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorId == id);
             _context.Fornecedores.Remove(fornecedor);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
