@@ -4,59 +4,78 @@
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
-<!DOCTYPE html>
+@section styles {
+    <link rel="stylesheet" href="~/lib/datatables/datatables.min.css" />
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        <a asp-action="Create">Novo</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.FornecedorId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RazaoSocial)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CpfCnpj)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+@if (@TempData["Message"] != null) {
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div> 
+}
+
+<div class="card-block">
+    <div class="card-header text-white bg-info text-center h1">
+        Relação de Fornecedores
+    </div>
+    <div class="card-body">
+        <table id="tabela_fornecedores">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FornecedorId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RazaoSocial)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CpfCnpj)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Alterar", "Edit", new { id = item.FornecedorId }) |
-                        @Html.ActionLink("Detalhar", "Details", new { id = item.FornecedorId }) |
-                        @Html.ActionLink("Excluir", "Delete", new { id = item.FornecedorId })
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FornecedorId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RazaoSocial)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CpfCnpj)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</body>
-</html>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FornecedorId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RazaoSocial)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CpfCnpj)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Alterar", "Edit", new { id = item.FornecedorId }) |
+                            @Html.ActionLink("Detalhar", "Details", new { id = item.FornecedorId }) |
+                            @Html.ActionLink("Excluir", "Delete", new { id = item.FornecedorId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card-footer bg-info text-center">
+        <a asp-action="Create" class="btn btn-light">Novo Fonecedor</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/lib/datatables/datatables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabela_fornecedores').DataTable({
+                "order": [[1, "asc"]]
+            });
+        });
+    </script>
+}

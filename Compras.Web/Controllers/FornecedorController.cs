@@ -142,6 +142,7 @@ namespace Compras.Web.Controllers
         {
             var fornecedor = await _context.Fornecedores.SingleOrDefaultAsync(f => f.FornecedorId == id);
             _context.Fornecedores.Remove(fornecedor);
+            TempData["Message"] = "Fornecedor " + fornecedor.Nome.ToUpper() + " foi excluído";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
